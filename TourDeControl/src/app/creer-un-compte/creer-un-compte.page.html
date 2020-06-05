@@ -1,0 +1,48 @@
+
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Création compte </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="logo">
+ <img src="../../assets/icon/favicon.png">
+
+</div>
+
+  <form [formGroup]="Userform">
+ 
+     <ion-item>
+      <ion-label position="floating">prénom</ion-label>
+      <ion-input type="text" formControlName="prenom" shape="round" ></ion-input>
+    </ion-item> 
+
+    <ion-item>
+      <ion-label position="floating">nom</ion-label>
+      <ion-input type="text" formControlName="nom" shape="round" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email" shape="round"  ></ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password" shape="round" ></ion-input>
+    </ion-item> 
+    
+  <ion-item>
+      <ion-label position="floating">poste</ion-label>
+      <ion-input type="text" formControlName="poste" shape="round"  ></ion-input>
+    </ion-item>
+
+  
+    <ion-button expand="full" type="submit" display="bolck" margin="auto" shape="round" (click)="onFormSubmit()"> ValiderNew </ion-button> 
+    <ion-button expand="full" type="submit" display="bolck" margin="auto" shape="round" (click)="Creer_Compte()"> Valider </ion-button> 
+    <ion-label> {{myerror.error_msg}} </ion-label>
+    <ion-button (click)="NavForDestination()" color="tertiary" expand="block" shape="round">Go destination</ion-button>
+  </form>
+</ion-content>

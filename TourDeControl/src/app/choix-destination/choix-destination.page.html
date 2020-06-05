@@ -1,0 +1,175 @@
+
+
+<ion-header>
+  <ion-buttons slot="start">
+    <ion-back-button>test back</ion-back-button>
+  </ion-buttons>
+  <ion-toolbar color="primary">
+    <ion-title>Choix de destination </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  
+  <ion-content>
+    
+    <div class="logo">
+    <img src="../../assets/icon/favicon.png">
+   
+   </div>
+
+   <!-- <form [formGroup]="Choiceform">
+
+   <ion-list>
+  <ion-list-header>
+    <ion-label>
+        Choix de destination 
+    </ion-label>
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label> <strong> Eablissement </strong> </ion-label>
+    <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+      <ion-select-option value="brown">Site 1</ion-select-option>
+      <ion-select-option value="blonde">Site 2</ion-select-option>
+      <ion-select-option value="black">Site 3</ion-select-option>
+      <ion-select-option value="red">site 4</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+ 
+
+  <ion-item>
+    <ion-label>Site</ion-label>
+    <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+      <ion-select-option value="brown">Site 1</ion-select-option>
+      <ion-select-option value="blonde">Site 2</ion-select-option>
+      <ion-select-option value="black">Site 3</ion-select-option>
+      <ion-select-option value="red">site 4</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  
+
+  <ion-item>
+    <ion-label>Choisir une date</ion-label>
+    <ion-datetime value="1995-04-15" min="2019-02" max="2022"
+      [dayShortNames]="customDayShortNames"
+      displayFormat="DDD. MMM DD, YY"
+      monthShortNames="jan, feb, mar, apr, mai, jun, jul, aug, sep, okt, nov, des"></ion-datetime>
+  </ion-item> 
+
+</ion-list>
+</form> -->
+
+
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+
+  <ion-item>
+    <ion-label> <strong> Etablissement </strong> </ion-label>
+    <ion-select formControlName="Etab" (ionChange)="onEtabChange()">
+      <ion-select-option *ngFor="let Etab of Etablissement" [value]="Etab">{{Etab}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label> <strong> Site</strong> </ion-label>
+    <ion-select formControlName="site">
+      <ion-select-option *ngFor="let site of sites" [value]="site">{{site}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label><strong>Date</strong></ion-label>
+    <ion-datetime displayFormat="DDD/MM/YYYY" formControlName="date" pickerFormat=" DDD MMMM YYYY " min="2020" max="{{year}}">
+    </ion-datetime>
+    </ion-item>
+    <p class="text-danger" *ngIf="form.controls.date.touched && (form.controls.date.invalid)">Entrer une date valide </p>
+  
+
+
+  <ion-item>
+    <!-- <ion-button [disabled]="!form.valid" (click)="commencerVisite()">Commencer la visite </ion-button> -->
+    <ion-button  display="bolck" margin="auto"  shape="round" (click)="commencerVisite()">Commencer la visite </ion-button>
+    <!-- <p class="text-danger" *ngIf="form.controls.Etab.touched && (form.controls.site.invalid)">Entrer une date valide </p> -->
+    <!-- <ion-button  (click)="loadHomeData()">data </ion-button> -->
+  </ion-item>
+</form>
+
+</ion-content> 
+
+
+
+ 
+<!-- </ion-list> -->
+        <!-- <div padding-left padding-right>
+            <button ion-button (click)="submit()" [disabled]="!form.valid">Submit</button>
+            <button ion-button (click)="reset()" [disabled]="!countryControl.valid && !portControl.valid" color="light">Reset</button>
+        </div> -->
+
+
+<!-- <ion-list>
+  <ion-list-header>
+    <ion-label>
+      Single Selection
+    </ion-label>
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label>Etablissement</ion-label>
+    <ion-select placeholder="Select One">
+      <ion-select-option value="f">Etab 1</ion-select-option>
+      <ion-select-option value="m">Etab 2</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Site</ion-label>
+    <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+      <ion-select-option value="brown">Site 1</ion-select-option>
+      <ion-select-option value="blonde">Site 2</ion-select-option>
+      <ion-select-option value="black">Site 3</ion-select-option>
+      <ion-select-option value="red">site 4</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Choisir une date</ion-label>
+    <ion-datetime value="1995-04-15" min="2019-02" max="2022"
+      [dayShortNames]="customDayShortNames"
+      displayFormat="DDD. MMM DD, YY"
+      monthShortNames="jan, feb, mar, apr, mai, jun, jul, aug, sep, okt, nov, des"></ion-datetime>
+  </ion-item> --> 
+
+<!-- </ion-list>
+
+</ion-content>  -->
+<!-- <ion-header>
+  <ion-navbar>
+      <ion-title>Cascading Selection</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form">
+      <ion-list>
+          <ion-item>
+              <ion-label>Country</ion-label>
+              <ion-select formControlName="country" (ionChange)="countryChange($event)">
+                  <ion-option *ngFor="let country of countries" [value]="country">{{country.name}}</ion-option>
+              </ion-select>
+          </ion-item>
+          <ion-item>
+              <ion-label>Port</ion-label>
+              <ion-select formControlName="port" (ionChange)="portChange($event)">
+                  <ion-option *ngFor="let port of portsByCountry" [value]="port">{{port.name}}</ion-option>
+              </ion-select>
+          </ion-item>
+      </ion-list>
+      <div padding-left padding-right>
+          <button ion-button (click)="submit()" [disabled]="!form.valid">Submit</button>
+          <button ion-button (click)="reset()" [disabled]="!countryControl.valid && !portControl.valid" color="light">Reset</button>
+      </div>
+  </form>
+</ion-content> -->

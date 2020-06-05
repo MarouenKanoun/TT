@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <ion-title>questionnairePremier</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- <form [formGroup]="credentialsForm">  -->
+<ion-content>
+
+  <form [formGroup]="form">
+  <ion-item>
+    <ion-label position="floating">Points positives </ion-label>
+    <ion-textarea [(ngModel)]="ResultReponse.positif" formControlName="positif" placeholder=""></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" color:red >Points négatives </ion-label>
+    <ion-textarea [(ngModel)]="ResultReponse.negatif" formControlName="negatif" placeholder=""></ion-textarea>
+  </ion-item>
+<label>{{Questions | json}}</label>
+  <ion-item  *ngFor="let questi of Questions;let index=index;trackBy:index;" type="item-text-wrap" >
+    
+    <ion-thumbnail>
+      <img src="https://www.gravatar.com/wavatar/205e460b479e2e5b48aec07710c08d50?f=2s=100" style="border-radius:50%">
+    </ion-thumbnail>
+    
+    <ion-item>
+      <ion-label>{{questi.contenu}} </ion-label>
+      <input type="hidden" [(ngModel)]="ResultReponse.questions[index].contenu_question" formControlName="contenu_question">
+
+      <ion-textarea [(ngModel)]="ResultReponse.questions[index].commentaire" formControlName="commentaire"   position="floating"   ></ion-textarea>
+      <ion-list>
+        <ion-radio-group [(ngModel)]="ResultReponse.questions[index].reponse" formControlName="reponse" >
+      
+          <ion-item>
+            <ion-label>oui </ion-label>
+            <ion-radio slot="start" value="Oui"></ion-radio>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label>non</ion-label>
+            <ion-radio slot="start" value="Non"></ion-radio>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label>NC</ion-label>
+            <ion-radio slot="start" value="NC"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-item>
+      <!-- <div class="row"> -->
+        <!-- <ion-img [src]="http://placeimg.com/300/150/tech"></ion-img> -->
+        <!-- <div class="col col-20"> <strong>{{questi._id}}</strong></div> -->
+        <!-- <div class="col col-80">{{questi.commentaire}}</div>
+        <textarea name="" id="" cols="30" rows="10">test</textarea> -->
+       <!-- </div>  -->
+       <!-- <span>{{questi._id}}</span>   -->
+       
+  
+  
+   </ion-item>
+
+   <ion-button (click)="test()">Valider </ion-button>
+  </form>
+</ion-content>
+<!-- </form> -->

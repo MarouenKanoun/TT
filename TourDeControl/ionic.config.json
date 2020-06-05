@@ -1,0 +1,7 @@
+{
+  "name": "TourDeControl",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

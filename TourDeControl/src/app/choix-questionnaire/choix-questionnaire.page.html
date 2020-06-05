@@ -1,0 +1,33 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title>choix-questionnaire</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-toolbar>
+  <ion-searchbar showCancelButton animated (ionInput)="OnSearch($event)"></ion-searchbar>
+</ion-toolbar>
+
+<ion-content>
+ 
+  <!-- <ion-button (click)="Afficher_Question_From_Questionnaire()"> -> </ion-button> -->
+
+  <ion-label> <Q> <strong>  Select one tour  de controle</strong> </Q></ion-label>
+
+<ion-item [routerLink]="['/questionnaire-premier/'+questi._id]" routerLinkActive="router-link-active"   *ngFor="let questi of anArray" type="item-text-wrap" >
+
+  <ion-thumbnail>
+    <img src="https://www.gravatar.com/wavatar/205e460b479e2e5b48aec07710c08d50?f=2s=100" style="border-radius:50%">
+  </ion-thumbnail>
+  
+    <div class="row">
+      <div class="col col-20"> <strong>{{questi.titre}}</strong></div>
+      <div class="col col-80">{{questi.commentaire}}</div>
+     </div> 
+     <span>{{questi._id}}</span>  
+     
+
+
+ </ion-item>
+
+  
+</ion-content>

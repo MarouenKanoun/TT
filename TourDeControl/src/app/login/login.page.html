@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="logo">
+
+    <img src="../../assets/icon/favicon.png">
+
+  </div>
+  <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit" display="bolck" margin="auto" shape="round" (click)="onFormSubmit()">Login </ion-button>
+    <!-- <ion-button expand="full" type="submit" display="bolck" margin="auto" shape="round" (click)=" MyonSubmit()">Login </ion-button> -->
+   
+    <ion-button display="bolck" margin="auto" color="google" shape="round" (click)=" NavCreerUnComte()">Créer un compte </ion-button>
+    <!-- <ion-label>{{listError}} </ion-label> -->
+
+  </form>
+</ion-content>
